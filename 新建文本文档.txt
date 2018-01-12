@@ -1,0 +1,28 @@
+SET NAMES utf8;
+SET time_zone = '+00:00';
+SET foreign_key_checks = 0;
+SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
+
+DROP TABLE IF EXISTS `vhx_stationmaster`;
+CREATE TABLE `vhx_stationmaster` (
+  `sid` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增id',
+  `uid` int(11) NOT NULL COMMENT '用户id',
+  `scid` int(11) NOT NULL COMMENT '校区id',
+  `name` varchar(20) DEFAULT NULL COMMENT '姓名',
+  `idcard` varchar(20) DEFAULT NULL COMMENT '身份证',
+  `term_start` int(11) DEFAULT NULL COMMENT '有效期限开始时间',
+  `term_end` int(11) DEFAULT NULL COMMENT '有效期限结束时间',
+  `is_examine` smallint(1) NOT NULL DEFAULT '0' COMMENT '审核是否通过，1为通过，0为拒绝',
+  `code` varchar(20) DEFAULT NULL COMMENT '渠道代号',
+  `status` smallint(1) NOT NULL DEFAULT '1' COMMENT '状态，1为正常，0为禁用',
+  `addtime` int(11) DEFAULT NULL COMMENT '申请时间',
+  `lastlogintime` int(11) DEFAULT NULL COMMENT '最近登录时间',
+  `ip` varchar(40) DEFAULT NULL COMMENT '地址',
+  UNIQUE KEY `sid` (`sid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='站长表';
+
+INSERT INTO `vhx_stationmaster` (`sid`,`uid`,`scid`,`name`,`idcard`,`term_start`,`term_end`,`is_examine`,`code`,`status`,`addtime`,`lastlogintime`,`ip`) VALUES
+(1,96,0,NULL,NULL,NULL,NULL,0,NULL,1,NULL,NULL,NULL),
+(2,13348,0,NULL,NULL,NULL,NULL,0,NULL,1,NULL,NULL,NULL),
+(3,84,0,NULL,NULL,NULL,NULL,0,NULL,1,NULL,NULL,NULL),
+(4,13313,0,NULL,NULL,NULL,NULL,0,NULL,1,NULL,NULL,NULL);
