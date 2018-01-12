@@ -1,0 +1,11 @@
+二维数组去重 
+从数据库中排除单一字段 重复的效果(返还单一字段不重复的全部信息)
+//        $arr=array();
+//        for($i=0;$i<count($list);$i++)
+//        {
+//            if(!isset($arr[$list[$i]['uid']]))
+//            {
+//                $arr[$list[$i]['uid']]=$list[$i];
+//            }
+//        }
+//        $list=array_values($arr);
