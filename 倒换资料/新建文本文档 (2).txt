@@ -1,0 +1,9 @@
+`created_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '订单创建的时间',
+
+	`updated_at` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '处理完成的时间',
+
+	`status` tinyint(2) NOT NULL COMMENT '当前状态,0未处理,1已处理,2处理中',
+
+	PRIMARY key (`id`)
+
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
