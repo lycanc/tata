@@ -9,3 +9,65 @@
 //            }
 //        }
 //        $list=array_values($arr);
+
+
+冒泡
+for($i=0;$i<count($arr)-1;$i++){
+	for($j=0;$j<count($arr)-1-$i;$j++){
+		if($arr[$j]>$arr[$j+1]){
+			$arr[$j]=[$arr[$j+1],$arr[$j+1]=$arr[$j]][0];
+		}
+	}
+}
+2分法 php
+public function twofen($list){
+		if(count($list)<2){
+			return $list ;
+		}
+		$length=floor(count($list)/2);
+		$bind=array_splice($list,$length,1);
+
+
+		$arrleft=[];
+		$arrright=[];
+		for($i=0;$i<count($list);$i++){
+			if($list[$i]<$bind[0]){
+				array_push($arrleft,$list[$i]);
+			}
+			if(($list[$i]>=$bind[0])){
+				array_push($arrright,$list[$i]);
+			}
+		}
+
+		$arrright=$this->twofen($arrright);
+		$arrleft=$this->twofen($arrleft);
+		$cist=array_merge($arrleft,$bind,$arrright);
+		return $cist;
+
+	}
+2分法 js
+public function twofen($list){
+		if($list.length<2){
+			return $list ;
+		}
+		$length=floor(count($list)/2);
+		$bind=$list.splice($length,1);
+
+
+		$arrleft=[];
+		$arrright=[];
+		for($i=0;$i<$list.length;$i++){
+			if($list[$i]<$bind[0]){
+				$arrleft.push($list[$i]);
+			}
+			if(($list[$i]>=$bind[0])){
+				$arrright.push($list[$i]);
+			}
+		}
+
+		$arrright=twofen($arrright);
+		$arrleft=twofen($arrleft);
+		$cist=$arrleft.concat($bind,$arrright);
+		return $cist;
+
+	}
